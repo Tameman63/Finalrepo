@@ -7,14 +7,14 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f4bcda99-a7c8-40c1-83e0-54cf16d4bc41" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
+		<http:listener-connection host="0.0.0.0" port="8090" />
 	</http:listener-config>
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="d785bdc0-33f1-4ed3-b146-1587f58093ba" >
 		<db:my-sql-connection host="mudb.mule-training.com" port="3306" user="mule" password="mule" database="training" />
 	</db:config>
 	<flow name="GetFlight" doc:id="98c97086-a84e-40f6-b8b8-febc15da14be" >
 		<db:select doc:name="Select" doc:id="2c4109a8-ed4d-45f8-8697-e0108646fa0e" config-ref="Database_Config">
-			<db:sql ><![CDATA[SELECT * from american]]></db:sql>
+			<db:sql ><![CDATA[SELECT * from american where pilot = gay]]></db:sql>
 		</db:select>
 		<ee:transform doc:name="Transform Message" doc:id="e0689dab-336f-4933-b2a2-c57027ee5e17" >
 			<ee:message >
